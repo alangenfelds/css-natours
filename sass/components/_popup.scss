@@ -30,9 +30,14 @@
   }
 
   &__left {
-    width: 33.333333%;
+    width: 33.33333%;
     // float: left;
     display: table-cell;
+
+    @include respond(tab-land) {
+      display: table-row;
+      width: max-content;
+    }
   }
 
   &__right {
@@ -46,6 +51,12 @@
   &__img {
     display: block;
     width: 100%;
+
+    @include respond(tab-land) {
+      display: inline-block;
+      width: 50%;
+      height: auto;
+    }
   }
 
   &__text {
