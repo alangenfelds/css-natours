@@ -6,12 +6,35 @@
       rgba($color-primary-light, 0.8),
       rgba($color-primary-dark, 0.8)
     ),
-    url(../img/hero.jpg);
+    url(../img/hero-small.jpg);
   background-size: cover;
   background-position: top;
 
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+  //   , - comma is the same as OR
+  @media (min-resolution: 192dpi) and (min-width: 37.5em), (min-width: 125em) {
+    // 600 / 16 = 37.5em
+    // 2000 / 16 = 125em
+    // higher than 192 dpi ==> apply
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+      ),
+      url(../img/hero.jpg);
+  }
+
+  // @media (min-width: 2000px) {
+  //   // higher than 2000pxi ==> apply
+  //   background-image: linear-gradient(
+  //       to right bottom,
+  //       rgba($color-primary-light, 0.8),
+  //       rgba($color-primary-dark, 0.8)
+  //     ),
+  //     url(../img/hero.jpg);
+  // }
 
   @include respond(phone) {
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
